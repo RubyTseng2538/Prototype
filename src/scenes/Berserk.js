@@ -1,6 +1,6 @@
-class EndScene extends Phaser.Scene{
+class BerserkScene extends Phaser.Scene{
     constructor(){
-        super("endScene");
+        super("berserkScene");
     }
 
     create(){
@@ -27,7 +27,7 @@ class EndScene extends Phaser.Scene{
             fixedWidth: 0
         }
 
-        this.add.text(game.config.width/2, game.config.height/2, 'You have defeated the Holy Army', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/2, 'You lost control over your mental', menuConfig).setOrigin(0.5);
         this.time.delayedCall(6000, ()=>{
             this.add.text(game.config.width/2, game.config.height/2 + 100, 'Press R to play again', menuConfig2).setOrigin(0.5);
             this.add.text(game.config.width/2, game.config.height/2 + 130, 'Press C for credit', menuConfig2).setOrigin(0.5);

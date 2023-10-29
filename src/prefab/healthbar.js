@@ -18,9 +18,9 @@ class HealthBar {
     {
         this.value -= amount;
 
-        if (this.value < 1)
+        if (this.value < 0)
         {
-            this.value = 1;
+            this.value = 0;
         }
 
         this.draw();
@@ -57,16 +57,16 @@ class HealthBar {
 
 }
 
-class Missile extends Phaser.GameObjects.Image {
+// class Missile extends Phaser.GameObjects.Image {
 
-    constructor (scene, frame)
-    {
-        super(scene, 0, 0, 'player', frame);
+//     constructor (scene, frame)
+//     {
+//         super(scene, 0, 0, 'player', frame);
 
-        this.visible = false;
-    }
+//         this.visible = false;
+//     }
 
-}
+// }
 
 // class Elf extends Phaser.GameObjects.Sprite {
 

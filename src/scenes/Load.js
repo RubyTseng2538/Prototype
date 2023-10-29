@@ -16,8 +16,8 @@ class Load extends Phaser.Scene{
         //load other
         this.load.image('vignette', 'vignette.png');
         this.load.image('fireball', 'fireball.png');
-        // this.load.image('f', 'fkey.png');
-        // this.load.image('textbox', 'textbox.png');
+        this.load.image('light', 'lightspell.png');
+        this.load.image('fruit', 'demonfruit.png');
         // this.load.image('title', 'title.png');
         // this.load.image('credit', 'credits.png');
         // this.load.image('fence', 'fence_blood.png');
@@ -31,8 +31,8 @@ class Load extends Phaser.Scene{
         
         // load character
         this.load.image('player', 'MC.png');
-        // this.load.image('carter', 'carter.png');
-        // this.load.image('frank', 'frank.png');
+        this.load.image('angel', 'angel.png');
+        this.load.image('knight', 'knight.png');
         // this.load.image('greig', 'greig.png');
         // this.load.image('haley', 'haley.png');
         // this.load.image('delilah', 'delilah2.png');
