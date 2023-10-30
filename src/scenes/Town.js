@@ -1,6 +1,6 @@
-class Town extends Phaser.Scene{
+class Battle extends Phaser.Scene{
     constructor(){
-        super("townScene");
+        super("battleScene");
     }
     create(){
         this.width = 960;
@@ -45,6 +45,10 @@ class Town extends Phaser.Scene{
         this.knight = new Enemy(this, 'knight', 900, this.height-350, 0.3);
 
         this.time = 0;
+
+        this.fruit = this.physics.add.sprite(500, 300, 'fruit').setScale(0.05);
+        this.fruit.body.allowGravity = false;
+        // this.fruit.visible = false;
         
     }
 
@@ -60,8 +64,7 @@ class Town extends Phaser.Scene{
 
         this.knight.move();
         this.knightAttack(this.knight, this.player);
-
-        // this.earring.anims.play('earringsparkle', true);
+        
         if(cursors.left.isDown) {
             random = Math.floor(Math.random() * 10) + 1;
             if(random > berserkCount){
@@ -70,7 +73,6 @@ class Town extends Phaser.Scene{
                 this.player.body.setVelocityX(this.VELOCITY);
             }
             
-            //this.player.anims.play('run_left', true);
 
         } else if(cursors.right.isDown) {
             random = Math.floor(Math.random() * 10) + 1;
@@ -79,7 +81,6 @@ class Town extends Phaser.Scene{
             }else{
                 this.player.body.setVelocityX(-this.VELOCITY);
             }
-            //this.player.anims.play('run_right', true);
 
         }else if(cursors.up.isDown){
             if(this.player.y > 470){
@@ -90,22 +91,32 @@ class Town extends Phaser.Scene{
             this.player.body.setVelocityX(0);
    
         }
-        if(this.hp.value == 1){
+        if(this.hp.value <= 1){
             this.vignette.visible = true;
             this.time +=100;
             console.log(this.time, berserkCount)
             if(this.time %100000 == 0){
                 berserkCount += 1;
             }
-
-
+            this.fruit.y = this.height/2;
+            this.fruit.visible = true;
         }
+        if(this.hp.value > 1){
+            this.vignette.visible = false;
+            this.fruit.visible = false;
+            this.fruit.y = 0;
+        }
+
         if(Phaser.Input.Keyboard.JustDown(keyE)){
             //cast skills
             this.fire.x = this.player.x+150;
             this.fire.y = this.player.y;
             this.fire.visible = true;
             this.fire.body.setVelocityX(300);
+        }
+            
+        if(this.checkOverlap(this.fruit, this.player)){
+            this.hp.decrease(-150);
         }
     }
 

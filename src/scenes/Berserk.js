@@ -41,7 +41,7 @@ class BerserkScene extends Phaser.Scene{
     update(){
         if(Phaser.Input.Keyboard.JustDown(keyR)){
             this.reset();
-            this.scene.start("townScene");
+            this.scene.start("battleScene");
         }
         if(Phaser.Input.Keyboard.JustDown(keyC)){
             this.reset();

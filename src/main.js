@@ -18,7 +18,7 @@ let config = {
         }
     },
     backgroundColor: '0x000000',
-    scene: [Load, Town, EndScene, BerserkScene, Credit]
+    scene: [Load, Battle, EndScene, BerserkScene, Credit]
 };
 
 let game = new Phaser.Game(config);

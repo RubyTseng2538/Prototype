@@ -35,7 +35,7 @@ class Credit extends Phaser.Scene{
     }
     update(){
         if(Phaser.Input.Keyboard.JustDown(keyR)){
-            this.scene.start("townScene");
+            this.scene.start("battleScene");
         }
     }
 }
